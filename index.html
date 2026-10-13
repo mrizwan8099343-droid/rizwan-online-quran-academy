@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b2e28">
-  <meta name="description" content="Rizwan Online Quran Academy offers supportive online Quran learning for students in Pakistan and abroad. Ask about courses, schedules, and online classes.">
+  <meta name="description" content="Rizwan Online Quran Academy offers one-to-one online Quran classes, introductory monthly packages, and a free trial enquiry for students in Pakistan and overseas.">
   <title>Rizwan Online Quran Academy | Learn Quran Online</title>
   <style>
     :root {
@@ -113,13 +113,37 @@
     .section-heading h2 { margin: 9px 0 12px; color: var(--green-950); font-size: clamp(30px, 4vw, 42px); line-height: 1.17; letter-spacing: -.8px; }
     .section-heading p { margin: 0; color: var(--muted); }
     .courses { background: var(--cream); }
-    .course-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+    .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
     .course-card { padding: 25px 22px; background: white; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 8px 22px rgba(8,37,31,.035); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
     .course-card:hover { transform: translateY(-6px); border-color: #bfd7ca; box-shadow: var(--shadow); }
     .course-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 19px; color: var(--green-800); background: var(--green-100); border-radius: 15px; font-size: 23px; }
     .course-card h3 { margin-bottom: 8px; color: var(--green-950); font-size: 17px; }
     .course-card p { margin: 0; color: var(--muted); font-size: 13px; }
     .small-note { max-width: 760px; margin: 23px auto 0; text-align: center; color: var(--muted); font-size: 12px; }
+
+    .fees { background: #f0f5f0; }
+    .price-region { margin-top: 34px; }
+    .price-region + .price-region { margin-top: 46px; }
+    .price-region h3 { margin: 0 0 17px; color: var(--green-950); text-align: center; font-size: 22px; }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .price-card { position: relative; padding: 25px 22px; background: white; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 8px 22px rgba(8,37,31,.035); }
+    .price-card.featured { border: 2px solid var(--green-700); box-shadow: var(--shadow); }
+    .price-tag { display: inline-block; margin-bottom: 13px; padding: 5px 10px; border-radius: 999px; background: var(--green-100); color: var(--green-800); font-size: 11px; font-weight: 800; }
+    .price-card h4 { margin: 0 0 8px; color: var(--green-950); font-size: 18px; }
+    .price-amount { margin: 0; color: var(--green-800); font-size: 32px; font-weight: 800; letter-spacing: -.7px; line-height: 1.2; }
+    .price-period { margin: 5px 0 15px; color: var(--muted); font-size: 12px; }
+    .price-details { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--muted); font-size: 13px; }
+    .price-details li::before { content: "✓"; color: var(--green-700); font-weight: 900; margin-right: 8px; }
+    .price-card .btn { width: 100%; margin-top: 20px; }
+    .trial-panel { margin-top: 48px; padding: clamp(24px, 4vw, 38px); display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px; align-items: center; background: linear-gradient(135deg, var(--green-950), var(--green-800)); color: white; border-radius: 26px; box-shadow: var(--shadow); }
+    .trial-panel .section-kicker { color: var(--gold-light); }
+    .trial-panel h3 { margin: 8px 0 10px; color: white; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; }
+    .trial-panel p { margin-bottom: 0; color: #d1e1d8; font-size: 14px; }
+    .trial-steps { display: grid; gap: 12px; }
+    .trial-step { display: flex; gap: 13px; align-items: flex-start; padding: 13px 15px; border: 1px solid rgba(243,223,170,.2); border-radius: 14px; background: rgba(255,255,255,.055); }
+    .trial-step strong { display: block; margin-bottom: 3px; color: var(--gold-light); font-size: 13px; }
+    .trial-step span { display: block; color: #d1e1d8; font-size: 12px; }
+    .fees-footnote { margin: 18px 0 0; text-align: center; color: var(--muted); font-size: 12px; }
 
     .about { background: #f0f5f0; }
     .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
@@ -182,6 +206,8 @@
     @media (max-width: 920px) {
       .hero-grid { gap: 30px; grid-template-columns: 1fr .8fr; }
       .course-grid { grid-template-columns: repeat(2, 1fr); }
+      .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .trial-panel { grid-template-columns: 1fr; }
       .about-grid { gap: 35px; }
       .contact-grid { gap: 28px; }
     }
@@ -211,7 +237,7 @@
       .footer-wrap { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 440px) {
-      .course-grid { grid-template-columns: 1fr; }
+      .course-grid, .price-grid { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .field-full { grid-column: auto; }
       .hero-actions .btn { width: 100%; }
@@ -239,6 +265,7 @@
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#courses">Courses</a>
+        <a href="#fees">Fees & Packages</a>
         <a href="#about">About</a>
         <a href="#how-it-works">How it works</a>
         <a class="nav-cta" href="#contact">Ask about classes ↗</a>
@@ -291,16 +318,137 @@
           </article>
           <article class="course-card reveal">
             <div class="course-icon" aria-hidden="true">❋</div>
-            <h3>Tajweed & Recitation</h3>
-            <p>Work on pronunciation and recitation rules according to the student’s level.</p>
+            <h3>Tajweed</h3>
+            <p>Learn pronunciation and recitation rules step by step, according to the student’s level.</p>
           </article>
           <article class="course-card reveal">
-            <div class="course-icon" aria-hidden="true">◈</div>
-            <h3>Revision & Practice</h3>
-            <p>Strengthen fluency through regular revision, feedback, and a learning plan.</p>
+            <div class="course-icon" aria-hidden="true">☾</div>
+            <h3>Hifz-ul-Quran</h3>
+            <p>Build a memorisation and revision routine suited to the student’s pace.</p>
+          </article>
+          <article class="course-card reveal">
+            <div class="course-icon" aria-hidden="true">✧</div>
+            <h3>Masnoon Duain & Namaz</h3>
+            <p>Learn selected daily duas and prayer basics with guided practice.</p>
+          </article>
+          <article class="course-card reveal">
+            <div class="course-icon" aria-hidden="true">۞</div>
+            <h3>Quran Translation & Tafseer</h3>
+            <p>Study meanings and explanation at a suitable level, with course details discussed in advance.</p>
           </article>
         </div>
-        <p class="small-note">Please confirm course availability, age suitability, fees, class duration, and schedule directly before enrolling.</p>
+        <p class="small-note">One-to-one lessons are planned for 30 minutes each. Hifz, translation, and tafseer lesson plans can be discussed according to the student’s current level and goals.</p>
+      </div>
+    </section>
+
+    <section class="fees" id="fees">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Fees & packages</span>
+          <h2>Simple plans for one-to-one learning</h2>
+          <p>Each regular lesson is 30 minutes. Choose a monthly schedule that suits the student and family.</p>
+        </div>
+
+        <div class="price-region">
+          <h3>Students in Pakistan</h3>
+          <div class="price-grid">
+            <article class="price-card reveal">
+              <span class="price-tag">Starter</span>
+              <h4>2 days per week</h4>
+              <p class="price-amount">Rs 2,000</p>
+              <p class="price-period">per month · about 8 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Choose from the listed courses</li><li>Timing agreed in advance</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+            <article class="price-card featured reveal">
+              <span class="price-tag">Recommended starting plan</span>
+              <h4>3 days per week</h4>
+              <p class="price-amount">Rs 2,800</p>
+              <p class="price-period">per month · about 12 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Regular weekly practice</li><li>Timing agreed in advance</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+            <article class="price-card reveal">
+              <span class="price-tag">Frequent practice</span>
+              <h4>5 days per week</h4>
+              <p class="price-amount">Rs 4,000</p>
+              <p class="price-period">per month · about 20 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Frequent practice and revision</li><li>Timing agreed in advance</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="price-region">
+          <h3>Overseas students</h3>
+          <div class="price-grid">
+            <article class="price-card reveal">
+              <span class="price-tag">United Kingdom</span>
+              <h4>2 days per week</h4>
+              <p class="price-amount">£20</p>
+              <p class="price-period">per month · about 8 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Schedule discussed in UK local time</li><li>Online from home</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+            <article class="price-card featured reveal">
+              <span class="price-tag">United Kingdom</span>
+              <h4>3 days per week</h4>
+              <p class="price-amount">£28</p>
+              <p class="price-period">per month · about 12 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Regular weekly practice</li><li>Schedule agreed in advance</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+            <article class="price-card reveal">
+              <span class="price-tag">United Kingdom</span>
+              <h4>5 days per week</h4>
+              <p class="price-amount">£40</p>
+              <p class="price-period">per month · about 20 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Frequent practice and revision</li><li>Schedule agreed in advance</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+          </div>
+          <div class="price-grid" style="margin-top:17px">
+            <article class="price-card reveal">
+              <span class="price-tag">USA & Canada</span>
+              <h4>2 days per week</h4>
+              <p class="price-amount">$25</p>
+              <p class="price-period">per month · about 8 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Schedule in your local time zone</li><li>Online from home</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+            <article class="price-card featured reveal">
+              <span class="price-tag">USA & Canada</span>
+              <h4>3 days per week</h4>
+              <p class="price-amount">$35</p>
+              <p class="price-period">per month · about 12 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Regular weekly practice</li><li>Schedule agreed in advance</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+            <article class="price-card reveal">
+              <span class="price-tag">USA & Canada</span>
+              <h4>5 days per week</h4>
+              <p class="price-amount">$50</p>
+              <p class="price-period">per month · about 20 classes</p>
+              <ul class="price-details"><li>30-minute one-to-one lessons</li><li>Frequent practice and revision</li><li>Schedule agreed in advance</li></ul>
+              <a class="btn btn-green" href="#contact">Ask about this plan</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="trial-panel reveal" id="free-trial">
+          <div>
+            <span class="section-kicker">Start with confidence</span>
+            <h3>One free introductory trial class</h3>
+            <p>New students can request one free 20–25 minute trial, subject to schedule availability. There is no obligation to enrol after the trial.</p>
+            <div style="margin-top:20px"><a class="btn btn-primary" href="#contact">Request a free trial ↗</a></div>
+          </div>
+          <div class="trial-steps">
+            <div class="trial-step"><div><strong>1. Meet & understand</strong><span>We briefly discuss the student’s age, current level, and learning goals with the parent or student.</span></div></div>
+            <div class="trial-step"><div><strong>2. Try a short lesson</strong><span>We listen to reading or practise a suitable beginner lesson to understand the student’s needs.</span></div></div>
+            <div class="trial-step"><div><strong>3. Choose the next step</strong><span>We discuss the suggested course, class days, local time zone, and monthly fee before regular lessons begin.</span></div></div>
+          </div>
+        </div>
+        <p class="fees-footnote">These are introductory suggested fees for planning purposes. Confirm course suitability, exact schedule, monthly fee, and payment arrangements with the academy before enrolling. Overseas times are agreed using the student’s local time zone.</p>
       </div>
     </section>
 
@@ -331,7 +479,7 @@
         <div class="section-heading reveal">
           <span class="section-kicker">Simple process</span>
           <h2>How online classes work</h2>
-          <p>Start with a message, discuss the student’s needs, and agree on the next step together.</p>
+          <p>Start with a message, request a free introductory trial, and agree on the next step together.</p>
         </div>
         <div class="steps-grid">
           <article class="step-card reveal">
@@ -346,8 +494,8 @@
           </article>
           <article class="step-card reveal">
             <div class="step-number">03</div>
-            <h3>Agree on the next step</h3>
-            <p>After the details are clear, decide whether to arrange an introductory lesson.</p>
+            <h3>Try a free introductory class</h3>
+            <p>Request one free 20–25 minute trial. If the schedule and course suit you, agree on a regular package.</p>
           </article>
         </div>
       </div>
@@ -357,7 +505,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-kicker">Get in touch</span>
-          <h2>Ask about Quran classes</h2>
+          <h2>Ask about classes or a free trial</h2>
           <p>Fill in the details below. The form will prepare a WhatsApp message so you can review it before sending.</p>
         </div>
         <div class="contact-grid">
@@ -372,7 +520,7 @@
           </div>
           <form class="contact-form reveal" id="enquiryForm">
             <h3>Student enquiry</h3>
-            <p class="form-help">Required fields are marked with an asterisk (*).</p>
+            <p class="form-help">Ask about a course, the monthly packages, or one free 20–25 minute introductory trial. Required fields are marked with an asterisk (*).</p>
             <div class="form-grid">
               <div class="field">
                 <label for="studentName">Parent / student name *</label>
@@ -387,9 +535,11 @@
                 <select id="courseChoice" name="courseChoice" required>
                   <option value="">Select a course</option>
                   <option>Noorani Qaida</option>
-                  <option>Quran Reading</option>
-                  <option>Tajweed & Recitation</option>
-                  <option>Revision & Practice</option>
+                  <option>Nazra Quran / Quran Reading</option>
+                  <option>Tajweed</option>
+                  <option>Hifz-ul-Quran</option>
+                  <option>Masnoon Duain & Namaz</option>
+                  <option>Quran Translation & Tafseer</option>
                   <option>Not sure yet — please advise</option>
                 </select>
               </div>
