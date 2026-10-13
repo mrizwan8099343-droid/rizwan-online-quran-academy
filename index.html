@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b2e28">
+  <meta name="description" content="Rizwan Online Quran Academy offers supportive online Quran learning for students in Pakistan and abroad. Ask about courses, schedules, and online classes.">
+  <title>Rizwan Online Quran Academy | Learn Quran Online</title>
+  <style>
+    :root {
+      --green-950: #08251f;
+      --green-900: #0b2e28;
+      --green-800: #124238;
+      --green-700: #1a5a49;
+      --green-100: #e6f2ed;
+      --gold: #d9b56d;
+      --gold-light: #f3dfaa;
+      --cream: #fbfaf6;
+      --white: #ffffff;
+      --ink: #1c2a26;
+      --muted: #5b6a64;
+      --line: #e3e9e4;
+      --shadow: 0 18px 55px rgba(8, 37, 31, .11);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 1000;
+      padding: 10px 14px; background: white; color: var(--green-950); border-radius: 8px;
+    }
+    .skip-link:focus { top: 12px; }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8, 37, 31, .97); color: var(--white);
+      border-bottom: 1px solid rgba(243, 223, 170, .16);
+      backdrop-filter: blur(12px);
+    }
+    .nav-wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; min-width: 0; }
+    .brand-mark {
+      display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px;
+      border: 1px solid rgba(243, 223, 170, .6); border-radius: 14px;
+      color: var(--gold-light); font-size: 25px;
+    }
+    .brand-name { display: block; color: white; font-size: 15px; line-height: 1.25; font-weight: 800; letter-spacing: .1px; }
+    .brand-caption { display: block; margin-top: 4px; color: #c5d8cf; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { color: #e4eee9; font-size: 14px; font-weight: 700; text-decoration: none; transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--gold-light); }
+    .nav-links .nav-cta { padding: 11px 16px; color: var(--green-950); background: var(--gold-light); border-radius: 999px; }
+    .nav-links .nav-cta:hover { color: var(--green-950); background: white; }
+    .menu-toggle { display: none; color: white; background: transparent; border: 1px solid #547168; border-radius: 10px; padding: 8px 11px; cursor: pointer; }
+
+    .hero {
+      position: relative; overflow: hidden; color: white;
+      background: radial-gradient(circle at 85% 25%, rgba(217,181,109,.18), transparent 28%),
+                  radial-gradient(circle at 10% 100%, rgba(51,123,94,.25), transparent 35%),
+                  linear-gradient(135deg, var(--green-950), var(--green-800));
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 430px; height: 430px; right: -170px; bottom: -240px;
+      border: 1px solid rgba(243,223,170,.19); border-radius: 50%;
+      box-shadow: 0 0 0 35px rgba(243,223,170,.035), 0 0 0 70px rgba(243,223,170,.025);
+      pointer-events: none;
+    }
+    .hero-grid { min-height: 590px; display: grid; grid-template-columns: 1.13fr .87fr; align-items: center; gap: 54px; padding-block: 76px; position: relative; z-index: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--gold-light); font-size: 12px; font-weight: 800; letter-spacing: 1.7px; text-transform: uppercase; }
+    .eyebrow::before { content: ""; display: block; width: 27px; height: 2px; background: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 700px; margin-bottom: 20px; font-size: clamp(38px, 5vw, 63px); line-height: 1.08; letter-spacing: -1.9px; }
+    h1 span { color: var(--gold-light); }
+    .hero-copy { max-width: 580px; color: #d6e5dd; font-size: 17px; margin-bottom: 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 19px; border: 1px solid transparent; border-radius: 999px; font-weight: 800; font-size: 14px; text-decoration: none; cursor: pointer; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--gold-light); color: var(--green-950); box-shadow: 0 8px 25px rgba(0,0,0,.14); }
+    .btn-primary:hover { background: white; }
+    .btn-outline { border-color: rgba(255,255,255,.45); color: white; background: rgba(255,255,255,.04); }
+    .btn-outline:hover { background: rgba(255,255,255,.12); }
+    .hero-note { margin: 21px 0 0; font-size: 12px; color: #bdcfc6; }
+    .hero-art { display: grid; place-items: center; min-height: 370px; }
+    .book-card {
+      position: relative; width: min(100%, 390px); min-height: 390px; padding: 28px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      border: 1px solid rgba(243,223,170,.36); border-radius: 190px 190px 28px 28px;
+      background: linear-gradient(155deg, rgba(255,255,255,.12), rgba(255,255,255,.035));
+      box-shadow: inset 0 0 45px rgba(243,223,170,.04), 0 25px 70px rgba(0,0,0,.18);
+    }
+    .book-ornament { display: grid; place-items: center; width: 100px; height: 100px; margin-bottom: 22px; border: 1px solid rgba(243,223,170,.5); border-radius: 50%; color: var(--gold-light); font-size: 42px; }
+    .arabic { margin: 0 0 10px; color: #fff4d8; font-size: clamp(26px, 3vw, 35px); line-height: 1.65; }
+    .book-card h2 { margin-bottom: 7px; color: white; font-size: 22px; }
+    .book-card p { max-width: 245px; margin-bottom: 0; color: #cfe0d7; font-size: 13px; }
+    .hero-pill { position: absolute; right: -12px; bottom: 36px; padding: 13px 17px; background: var(--cream); color: var(--green-900); border-radius: 15px; box-shadow: var(--shadow); font-size: 12px; font-weight: 800; }
+    .hero-pill span { display: block; color: var(--muted); font-size: 11px; font-weight: 500; }
+
+    section { padding-block: 88px; }
+    .section-heading { max-width: 680px; margin: 0 auto 42px; text-align: center; }
+    .section-kicker { color: var(--green-700); font-size: 12px; font-weight: 800; letter-spacing: 1.7px; text-transform: uppercase; }
+    .section-heading h2 { margin: 9px 0 12px; color: var(--green-950); font-size: clamp(30px, 4vw, 42px); line-height: 1.17; letter-spacing: -.8px; }
+    .section-heading p { margin: 0; color: var(--muted); }
+    .courses { background: var(--cream); }
+    .course-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+    .course-card { padding: 25px 22px; background: white; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 8px 22px rgba(8,37,31,.035); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .course-card:hover { transform: translateY(-6px); border-color: #bfd7ca; box-shadow: var(--shadow); }
+    .course-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 19px; color: var(--green-800); background: var(--green-100); border-radius: 15px; font-size: 23px; }
+    .course-card h3 { margin-bottom: 8px; color: var(--green-950); font-size: 17px; }
+    .course-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .small-note { max-width: 760px; margin: 23px auto 0; text-align: center; color: var(--muted); font-size: 12px; }
+
+    .about { background: #f0f5f0; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
+    .about-panel { position: relative; overflow: hidden; min-height: 350px; padding: 35px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 28px; background: linear-gradient(150deg, var(--green-900), var(--green-700)); color: white; box-shadow: var(--shadow); }
+    .about-panel::after { content: "✧"; position: absolute; right: 15px; top: -48px; color: rgba(243,223,170,.14); font-size: 260px; line-height: 1; }
+    .about-panel .panel-mark { position: relative; z-index: 1; color: var(--gold-light); font-size: 44px; }
+    .about-panel blockquote { position: relative; z-index: 1; margin: 30px 0 0; font-size: 23px; line-height: 1.4; font-weight: 700; }
+    .about-panel .panel-foot { position: relative; z-index: 1; margin: 16px 0 0; color: #d1e1d8; font-size: 13px; }
+    .about-copy .section-kicker { display: block; margin-bottom: 9px; }
+    .about-copy h2 { margin-bottom: 17px; color: var(--green-950); font-size: clamp(30px, 4vw, 42px); line-height: 1.16; letter-spacing: -.9px; }
+    .about-copy p { color: var(--muted); }
+    .feature-list { display: grid; gap: 12px; margin: 24px 0 28px; padding: 0; list-style: none; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 11px; color: var(--ink); font-size: 14px; }
+    .feature-list li span { display: grid; place-items: center; flex: 0 0 23px; width: 23px; height: 23px; margin-top: 1px; color: var(--green-800); background: #dcece2; border-radius: 50%; font-weight: 900; font-size: 12px; }
+    .btn-green { background: var(--green-800); color: white; }
+    .btn-green:hover { background: var(--green-950); }
+
+    .steps { background: white; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step-card { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); }
+    .step-number { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 18px; border-radius: 13px; background: var(--green-900); color: var(--gold-light); font-weight: 800; }
+    .step-card h3 { margin-bottom: 9px; color: var(--green-950); font-size: 18px; }
+    .step-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+
+    .contact { background: var(--green-950); color: white; }
+    .contact .section-kicker { color: var(--gold-light); }
+    .contact .section-heading h2 { color: white; }
+    .contact .section-heading p { color: #c6d8cf; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 45px; align-items: start; }
+    .contact-info h3 { margin-bottom: 12px; color: white; font-size: 24px; }
+    .contact-info > p { color: #c6d8cf; }
+    .contact-points { display: grid; gap: 14px; margin-top: 27px; }
+    .contact-point { display: flex; gap: 12px; align-items: flex-start; color: #e2eee7; font-size: 14px; }
+    .contact-point .point-icon { color: var(--gold-light); font-size: 19px; }
+    .contact-form { padding: 30px; background: white; color: var(--ink); border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,.17); }
+    .contact-form h3 { margin-bottom: 5px; color: var(--green-950); font-size: 22px; }
+    .form-help { margin-bottom: 22px; color: var(--muted); font-size: 13px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field-full { grid-column: 1 / -1; }
+    .field label { color: #34443d; font-weight: 800; font-size: 12px; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid #d7e1da; border-radius: 11px; background: #fcfdfb; color: var(--ink); padding: 12px 13px; outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green-700); box-shadow: 0 0 0 3px rgba(26,90,73,.11); }
+    .field textarea { min-height: 105px; resize: vertical; }
+    .contact-form .btn { width: 100%; margin-top: 18px; border: 0; }
+    .form-disclaimer { margin: 13px 0 0; color: #6b7972; font-size: 11px; text-align: center; }
+    .notice { display: none; margin-top: 14px; padding: 12px; background: #fff6df; color: #624b13; border-radius: 10px; font-size: 13px; }
+
+    .site-footer { padding: 26px 0; background: #061d19; color: #bdcfc6; }
+    .footer-wrap { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .footer-wrap p { margin: 0; font-size: 12px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 17px; }
+    .footer-links a { color: #d7e4dd; font-size: 12px; text-decoration: none; }
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .reveal { opacity: 1; transform: none; }
+    .js-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .js-ready .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 920px) {
+      .hero-grid { gap: 30px; grid-template-columns: 1fr .8fr; }
+      .course-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { gap: 35px; }
+      .contact-grid { gap: 28px; }
+    }
+    @media (max-width: 720px) {
+      .container { width: min(100% - 30px, 560px); }
+      .nav-wrap { min-height: 70px; }
+      .brand-name { font-size: 13px; }
+      .brand-caption { font-size: 10px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 20px 18px; background: var(--green-950); border-bottom: 1px solid rgba(243,223,170,.2); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 8px; }
+      .nav-links .nav-cta { text-align: center; margin-top: 6px; }
+      .hero-grid { min-height: 0; grid-template-columns: 1fr; padding-block: 62px 48px; }
+      h1 { letter-spacing: -1.1px; }
+      .hero-copy { font-size: 16px; }
+      .hero-art { min-height: 300px; margin-top: 7px; }
+      .book-card { min-height: 310px; width: min(100%, 320px); border-radius: 160px 160px 24px 24px; }
+      .book-ornament { width: 75px; height: 75px; font-size: 32px; }
+      .hero-pill { right: -4px; bottom: 20px; }
+      section { padding-block: 65px; }
+      .section-heading { margin-bottom: 30px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-panel { min-height: 280px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 22px; }
+      .footer-wrap { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 440px) {
+      .course-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field-full { grid-column: auto; }
+      .hero-actions .btn { width: 100%; }
+      .contact-form { padding: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+      .js-ready .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Rizwan Online Quran Academy home">
+        <span class="brand-mark" aria-hidden="true">☾</span>
+        <span>
+          <span class="brand-name">Rizwan Online Quran Academy</span>
+          <span class="brand-caption">Learn • Recite • Grow</span>
+        </span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+        <a href="#how-it-works">How it works</a>
+        <a class="nav-cta" href="#contact">Ask about classes ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Online Quran learning</span>
+          <h1>Build a closer connection with the <span>Holy Quran.</span></h1>
+          <p class="hero-copy">Supportive, step-by-step online Quran lessons for students in Pakistan and around the world. Ask about a course and find a learning schedule that works for your family.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Ask about classes <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#courses">Explore courses</a>
+          </div>
+          <p class="hero-note">Online learning • Flexible scheduling by arrangement • Students at different levels</p>
+        </div>
+        <div class="hero-art reveal" aria-label="Quran learning welcome panel">
+          <div class="book-card">
+            <div class="book-ornament" aria-hidden="true">✧</div>
+            <p class="arabic" lang="ar" dir="rtl">اقْرَأْ وَارْتَقِ</p>
+            <h2>Learn with patience</h2>
+            <p>Take the next step in your Quran learning journey, one lesson at a time.</p>
+            <div class="hero-pill">Pakistan & worldwide<span>Online lessons by arrangement</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses" id="courses">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Learning options</span>
+          <h2>Quran courses to explore</h2>
+          <p>Choose a starting point that matches the student’s current level. Contact the academy to discuss which lessons are available and suitable.</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card reveal">
+            <div class="course-icon" aria-hidden="true">✦</div>
+            <h3>Noorani Qaida</h3>
+            <p>Build a foundation with Arabic letters, sounds, and basic reading practice.</p>
+          </article>
+          <article class="course-card reveal">
+            <div class="course-icon" aria-hidden="true">۞</div>
+            <h3>Quran Reading</h3>
+            <p>Develop confidence and consistency through guided Quran reading practice.</p>
+          </article>
+          <article class="course-card reveal">
+            <div class="course-icon" aria-hidden="true">❋</div>
+            <h3>Tajweed & Recitation</h3>
+            <p>Work on pronunciation and recitation rules according to the student’s level.</p>
+          </article>
+          <article class="course-card reveal">
+            <div class="course-icon" aria-hidden="true">◈</div>
+            <h3>Revision & Practice</h3>
+            <p>Strengthen fluency through regular revision, feedback, and a learning plan.</p>
+          </article>
+        </div>
+        <p class="small-note">Please confirm course availability, age suitability, fees, class duration, and schedule directly before enrolling.</p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-panel reveal">
+          <div class="panel-mark" aria-hidden="true">☾ ✧</div>
+          <blockquote>“Every student deserves patience, encouragement, and a clear path to learning.”</blockquote>
+          <p class="panel-foot">Rizwan Online Quran Academy</p>
+        </div>
+        <div class="about-copy reveal">
+          <span class="section-kicker">About the academy</span>
+          <h2>A welcoming place to learn online.</h2>
+          <p>Rizwan Online Quran Academy aims to make online Quran learning approachable for students in Pakistan and overseas. Lessons can be discussed around the student’s current level, learning goals, and mutually agreed timings.</p>
+          <ul class="feature-list">
+            <li><span aria-hidden="true">✓</span> A learning plan based on the student’s needs</li>
+            <li><span aria-hidden="true">✓</span> Online lessons from home</li>
+            <li><span aria-hidden="true">✓</span> Timings discussed with the family in advance</li>
+            <li><span aria-hidden="true">✓</span> Parents can ask questions before enrolling</li>
+          </ul>
+          <a class="btn btn-green" href="#contact">Ask a question <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" id="how-it-works">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Simple process</span>
+          <h2>How online classes work</h2>
+          <p>Start with a message, discuss the student’s needs, and agree on the next step together.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <div class="step-number">01</div>
+            <h3>Send an enquiry</h3>
+            <p>Share the student’s level, country or time zone, and the course you want to ask about.</p>
+          </article>
+          <article class="step-card reveal">
+            <div class="step-number">02</div>
+            <h3>Discuss a schedule</h3>
+            <p>Confirm lesson timings, duration, fees, and the online tool that will be used.</p>
+          </article>
+          <article class="step-card reveal">
+            <div class="step-number">03</div>
+            <h3>Agree on the next step</h3>
+            <p>After the details are clear, decide whether to arrange an introductory lesson.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Get in touch</span>
+          <h2>Ask about Quran classes</h2>
+          <p>Fill in the details below. The form will prepare a WhatsApp message so you can review it before sending.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Let’s discuss your learning goals.</h3>
+            <p>Parents and students from Pakistan and overseas are welcome to ask about course options, timings, and fees.</p>
+            <div class="contact-points">
+              <div class="contact-point"><span class="point-icon" aria-hidden="true">◎</span><span><strong>Location</strong><br>Online lessons; Pakistan and overseas enquiries</span></div>
+              <div class="contact-point"><span class="point-icon" aria-hidden="true">◷</span><span><strong>Timings</strong><br>To be discussed and confirmed in advance</span></div>
+              <div class="contact-point"><span class="point-icon" aria-hidden="true">☎</span><span><strong>WhatsApp</strong><br><a href="https://wa.me/923208099343" target="_blank" rel="noopener noreferrer">0320 8099343</a></span></div>
+            </div>
+          </div>
+          <form class="contact-form reveal" id="enquiryForm">
+            <h3>Student enquiry</h3>
+            <p class="form-help">Required fields are marked with an asterisk (*).</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="studentName">Parent / student name *</label>
+                <input id="studentName" name="studentName" type="text" autocomplete="name" placeholder="Your name" required maxlength="80">
+              </div>
+              <div class="field">
+                <label for="country">Country / time zone *</label>
+                <input id="country" name="country" type="text" placeholder="e.g. Pakistan, UK" required maxlength="80">
+              </div>
+              <div class="field field-full">
+                <label for="courseChoice">Course you are interested in *</label>
+                <select id="courseChoice" name="courseChoice" required>
+                  <option value="">Select a course</option>
+                  <option>Noorani Qaida</option>
+                  <option>Quran Reading</option>
+                  <option>Tajweed & Recitation</option>
+                  <option>Revision & Practice</option>
+                  <option>Not sure yet — please advise</option>
+                </select>
+              </div>
+              <div class="field field-full">
+                <label for="timing">Preferred days / timings</label>
+                <input id="timing" name="timing" type="text" placeholder="e.g. evenings, UK time" maxlength="120">
+              </div>
+              <div class="field field-full">
+                <label for="message">Message (optional)</label>
+                <textarea id="message" name="message" placeholder="Share the student's level or any questions." maxlength="700"></textarea>
+              </div>
+            </div>
+            <button class="btn btn-green" type="submit">Prepare WhatsApp enquiry ↗</button>
+            <p class="form-disclaimer">This website does not store form entries. WhatsApp opens so you can review and send the message yourself.</p>
+            <div class="notice" id="setupNotice" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Rizwan Online Quran Academy. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#home">Back to top ↑</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Academy WhatsApp number in international format: Pakistan country code 92, without the local leading 0.
+    const WHATSAPP_NUMBER = "923208099343";
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const enquiryForm = document.getElementById("enquiryForm");
+    const setupNotice = document.getElementById("setupNotice");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    enquiryForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      setupNotice.style.display = "none";
+
+      if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
+        setupNotice.textContent = "The academy WhatsApp number is not configured correctly. Please check the international number in the website code.";
+        setupNotice.style.display = "block";
+        return;
+      }
+
+      const formData = new FormData(enquiryForm);
+      const studentName = String(formData.get("studentName") || "").trim();
+      const country = String(formData.get("country") || "").trim();
+      const course = String(formData.get("courseChoice") || "").trim();
+      const timing = String(formData.get("timing") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+
+      const whatsappMessage = [
+        "Assalamu Alaikum, Rizwan Online Quran Academy.",
+        "I would like to ask about online Quran classes.",
+        "Name: " + studentName,
+        "Country / time zone: " + country,
+        "Course: " + course,
+        "Preferred timing: " + (timing || "Not specified"),
+        "Message: " + (message || "No extra message")
+      ].join("\n");
+
+      const whatsappUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(whatsappMessage);
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    });
+
+    // Reveal elements as they enter view; the page still works if this feature is unavailable.
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.body.classList.add("js-ready");
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    }
+  </script>
+</body>
+</html>
